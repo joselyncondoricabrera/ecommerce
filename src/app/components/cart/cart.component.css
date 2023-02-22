@@ -1,0 +1,16 @@
+.container-table{
+    background-color: floralwhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 10.39vh);
+    width: 100%;
+
+}
+table{
+    background-color: antiquewhite;
+    border: burlywood;
+}
+table th{
+    width: 100px;
+}
