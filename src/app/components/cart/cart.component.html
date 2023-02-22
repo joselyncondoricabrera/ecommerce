@@ -5,7 +5,14 @@
             <th>Precio</th>
             <th>Cantidad</th>
         </tr>
-        <tr></tr>
+        <tr *ngFor ="let productSelect  of products">
+            <th>
+                <img src={{productSelect.image}}>
+            </th>
+            <th>{{productSelect.title}}</th>
+            <th>{{productSelect.price}}</th>
+            <th>0</th>
+        </tr>
     </table>
     
 </div>

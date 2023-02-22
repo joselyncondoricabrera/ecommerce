@@ -14,3 +14,6 @@ table{
 table th{
     width: 100px;
 }
+table tr {
+    background-color: blue;
+}
