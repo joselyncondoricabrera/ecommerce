@@ -1,17 +1,18 @@
 <div  class="container-table">
     <table>
         <tr>
-            <th>Producto</th>
-            <th>Precio</th>
-            <th>Cantidad</th>
+            <th class="colum-image"></th>
+            <th class="colum-producto">Producto</th>
+            <th class="colum-price">Precio</th>
+            <th class="colum-quantity">Cantidad</th>
         </tr>
         <tr *ngFor ="let productSelect  of products">
-            <th>
+            <th class="colum-image">
                 <img src={{productSelect.image}}>
             </th>
-            <th>{{productSelect.title}}</th>
-            <th>{{productSelect.price}}</th>
-            <th>0</th>
+            <th class="colum-producto">{{productSelect.title}}</th>
+            <th class="colum-price">${{productSelect.price}}</th>
+            <th class="colum-quantity">{{productSelect.quantity}}</th>
         </tr>
     </table>
     

@@ -3,10 +3,12 @@ import {Observable} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 interface Product {
+  id: number,
   title: string,
   description: string,
   price: number,
   image: string,
+  quantity: number,
 }
 
 @Injectable({
@@ -14,7 +16,8 @@ interface Product {
 })
 export class MenuService {
     private api_url = "https://fakestoreapi.com/products";
-    productsSelection: Product[] =[];
+    arrayProducts: Product[] =[];
+
 
   constructor( public http: HttpClient) { 
   }
@@ -23,8 +26,61 @@ export class MenuService {
     return this.http.get(this.api_url);
   }
 
-  addProducts(productselect : Product) {
-    console.log(this.productsSelection);
-    return this.productsSelection.push(productselect);
+  addProducts(productselect : any) {
+    productselect.quantity = 1 ;
+    //  console.log(productselect);
+
+    if(this.arrayProducts.length === 0){
+      this.arrayProducts.push(productselect);
+    } else{
+      this.arrayProducts.forEach((pro)=>{
+        if(pro.id === productselect.id){
+          this.arrayProducts = this.arrayProducts.map((prod)=>{
+            if(prod.id === productselect.id){
+              pro.quantity =pro.quantity +1;
+            }
+            return pro;
+
+          });
+
+        }
+      });
+    }
+    
+   
+  // console.log(this.arrayProducts)
+  //   productselect.quantity = 1 ;
+  // console.log(this.arrayProducts)
+
+
+  //   if(this.arrayProducts.length === 0){
+  //     this.arrayProducts.push(productselect);
+  //   } else{
+  //     if(this.arrayProducts.indexOf(productselect) === 0){
+  //       console.log("producto repetido");
+
+  //       this.arrayProducts = this.arrayProducts.map( (pro) => {
+  //         if(pro.title === productselect.title){           
+  //            pro.quantity +=1;
+  //           return pro;
+  //         } 
+  //         return pro;
+  //       }); 
+     
+
+        
+  //      console.log(this.arrayProducts);
+   
+
+      
+  //     } 
+  //     else if (this.arrayProducts.indexOf(productselect) !== 0) {
+  //       this.arrayProducts.push(productselect);
+  //     }
+  //   }
+
   }
 }
+
+
+   

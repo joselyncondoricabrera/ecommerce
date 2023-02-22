@@ -10,10 +10,8 @@ export class CartComponent {
   products : Array<any> =[];
 
   constructor(public menuService : MenuService){
-    // menuService.productsSelection;
-    // console.log(menuService.productsSelection);
-    this.products = menuService.productsSelection;
-    console.log(this.products);
+    this.products = menuService.arrayProducts;
+    // console.log(this.products);
   }
 
 
