@@ -27,6 +27,8 @@ export class MenuService {
   }
 
   addProducts(productselect : any) {
+
+    console.log(productselect.rating.count);
     productselect.quantity = 1 ;
     //  console.log(productselect);
 
