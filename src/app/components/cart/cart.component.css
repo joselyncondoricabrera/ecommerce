@@ -28,9 +28,17 @@ table th{
     width: 25%;
 }
 
-.colum-image .colum-producto .colum-price .colum-quantity {
+/* .colum-image .colum-producto .colum-price .colum-quantity .colum-plus .colum-minus{
     /* width: 250px;
-    height: 200px; */
+    height: 200px; 
+} */
+
+.button-plus .button-minus{
+    border: none;
+    width: 60px;
+    height: 60px;
+    background-color: blue;
+    cursor: pointer;
 }
 .colum-image img{
     width: 90%;
