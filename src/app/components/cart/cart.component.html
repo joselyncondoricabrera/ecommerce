@@ -15,11 +15,11 @@
             <th class="colum-producto">{{productSelect.title}}</th>
             <th class="colum-price">${{productSelect.price}}</th>
             <th class="colum-plus">
-              <button class="button-plus" (click)="incrementCant(productSelect.quantity)">+</button>
+              <button class="button-plus" (click)="incrementCant(productSelect.quantity,productSelect.id)">+</button>
             </th>
             <th class="colum-quantity">{{productSelect.quantity}}</th>
             <th class="colum-minus">
-              <button class="button-minus">-</button>
+              <button class="button-minus" (click)="decrementCant(productSelect.quantity,productSelect.id)">-</button>
             </th>
         </tr>
     </table>

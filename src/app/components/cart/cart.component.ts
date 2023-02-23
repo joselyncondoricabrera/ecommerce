@@ -24,11 +24,42 @@ export class CartComponent {
 
   }
 
-  incrementCant( cant : number){
+  incrementCant( cant : number, productId : number){
     console.log("incrementando");
-    console.log(cant);
+  
+    let productList = JSON.parse(localStorage.getItem("producto") || '[]');
 
+    productList= productList.map((pro: any)=>{
+      if(pro.id === productId){
+        pro.quantity = pro.quantity + 1;
+      }
+      return pro;
+    });
 
+    localStorage.setItem("producto", JSON.stringify(productList)),
+    this.products = productList;
+
+    console.log(productList);
+  }
+
+  decrementCant(cant:  number , productId : number){ 
+    if(cant > 1){
+      let productList = JSON.parse(localStorage.getItem("producto") || '[]');
+
+      productList= productList.map((pro: any)=>{
+        if(pro.id === productId){
+          pro.quantity = pro.quantity - 1;
+        }
+        return pro;
+      });
+  
+      localStorage.setItem("producto", JSON.stringify(productList)),
+      this.products = productList;
+  
+      console.log(productList);
+
+    }
+    
   }
 
   showProducts(){
