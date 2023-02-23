@@ -16,10 +16,11 @@ interface Product {
 })
 export class MenuService {
     private api_url = "https://fakestoreapi.com/products";
-    arrayProducts: Product[] =[];
+
+    arrayProducts: any[] =[];
 
 
-  constructor( public http: HttpClient) { 
+  constructor( public http: HttpClient) {
   }
 
   getProducts() : Observable<any>{
@@ -27,60 +28,33 @@ export class MenuService {
   }
 
   addProducts(productselect : any) {
-    productselect.quantity = 1 ;
-    //  console.log(productselect);
+    this.arrayProducts.push(productselect);
 
-    if(this.arrayProducts.length === 0){
-      this.arrayProducts.push(productselect);
-    } else{
-      this.arrayProducts.forEach((pro)=>{
-        if(pro.id === productselect.id){
-          this.arrayProducts = this.arrayProducts.map((prod)=>{
-            if(prod.id === productselect.id){
-              pro.quantity =pro.quantity +1;
-            }
-            return pro;
-
-          });
-
-        }
-      });
-    }
-    
-   
-  // console.log(this.arrayProducts)
-  //   productselect.quantity = 1 ;
-  // console.log(this.arrayProducts)
+    this.arrayProducts = this.arrayProducts.filter((pro,index)=>{
+      return  this.arrayProducts.indexOf(pro) === index;
+    });
 
 
-  //   if(this.arrayProducts.length === 0){
-  //     this.arrayProducts.push(productselect);
-  //   } else{
-  //     if(this.arrayProducts.indexOf(productselect) === 0){
-  //       console.log("producto repetido");
 
-  //       this.arrayProducts = this.arrayProducts.map( (pro) => {
-  //         if(pro.title === productselect.title){           
-  //            pro.quantity +=1;
-  //           return pro;
-  //         } 
-  //         return pro;
-  //       }); 
-     
 
-        
-  //      console.log(this.arrayProducts);
-   
 
-      
-  //     } 
-  //     else if (this.arrayProducts.indexOf(productselect) !== 0) {
-  //       this.arrayProducts.push(productselect);
-  //     }
-  //   }
+    // if(this.arrayProducts.length === 0){
+    //   this.arrayProducts.push(productselect);
+    //   console.log(this.arrayProducts);
+
+    // } else {
+    //   this.arrayProducts.filter((pro, index)=>{
+    //     console.log(pro.id,productselect.id);
+    //     if(pro.id !== productselect.id){
+    //       this.arrayProducts.push(productselect);
+
+    //     }
+    //   });
+    //   console.log(this.arrayProducts);
+    // }
 
   }
 }
 
 
-   
+
