@@ -7,6 +7,7 @@
             <th></th>
             <th class="colum-quantity">Cantidad</th>
             <th></th>
+            <th>Importe</th>
         </tr>
         <tr *ngFor ="let productSelect  of products">
             <th class="colum-image">
@@ -21,6 +22,15 @@
             <th class="colum-minus">
               <button class="button-minus" (click)="decrementCant(productSelect.quantity,productSelect.id)">-</button>
             </th>
+            <th>${{productSelect.price*productSelect.quantity}}</th>
+        </tr>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th>Total</th>
+          <th>$</th>
         </tr>
     </table>
 
