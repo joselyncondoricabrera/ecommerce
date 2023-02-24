@@ -1,12 +1,13 @@
 header{
-    background-color: aliceblue;
+    background-color: #301E67;
     display: flex;
     justify-content: space-between;
     height: 90px;
     align-items: center;
     padding: 0 50px;
     font-family: 'Catamaran', sans-serif;
-  
+    color: white;
+
 }
 
 header picture{
@@ -18,7 +19,7 @@ header picture img{
     height: 100%;
     width: 100%;
     border-radius: 50px;
-    
+
 }
 ul{
     display: flex;
@@ -35,4 +36,13 @@ li{
     text-align: center;
     width: 200px;
     font-size: 20px;
+}
+.navbar-opcion{
+  /* background-color: aqua; */
+  cursor: pointer;
+  height: 90px;
+  border-color: aqua;
+}
+.navbar-opcion:hover {
+  background-color: #8D72E1;
 }
