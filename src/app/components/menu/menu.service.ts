@@ -15,7 +15,10 @@ interface Product {
   providedIn: 'root'
 })
 export class MenuService {
-    private api_url = "https://fakestoreapi.com/products";
+    private api_url = "https://localhost:7063/api/Product";
+
+    //api fake
+    // private api_url = "'https://fakestoreapi.com/products";
 
     arrayProducts: any[] =[];
 
@@ -34,27 +37,6 @@ export class MenuService {
     this.arrayProducts = this.arrayProducts.filter((pro,index)=>{
       return  this.arrayProducts.indexOf(pro) === index;
     });
-
-    // 
-
-
-
-
-
-    // if(this.arrayProducts.length === 0){
-    //   this.arrayProducts.push(productselect);
-    //   console.log(this.arrayProducts);
-
-    // } else {
-    //   this.arrayProducts.filter((pro, index)=>{
-    //     console.log(pro.id,productselect.id);
-    //     if(pro.id !== productselect.id){
-    //       this.arrayProducts.push(productselect);
-
-    //     }
-    //   });
-    //   console.log(this.arrayProducts);
-    // }
 
   }
 
