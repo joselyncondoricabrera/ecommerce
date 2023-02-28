@@ -9,7 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CartComponent } from './components/cart/cart.component';
 
 import {HttpClientModule} from '@angular/common/http';
-import { MenuService } from './menu.service';
+import { MenuService } from '../app/components/menu/menu.service';
 import { MenuAdminComponent } from './components/menu-admin/menu-admin.component';
 import { LoginComponent } from './components/login/login.component';
 
@@ -21,7 +21,7 @@ import { LoginComponent } from './components/login/login.component';
     CartComponent,
     MenuAdminComponent,
     LoginComponent
-    
+
   ],
   imports: [
     BrowserModule,
