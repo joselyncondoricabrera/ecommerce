@@ -15,7 +15,7 @@ export class CartComponent {
     // console.log(this.products);
 
 
-    // const pro = localStorage.getItem("producto");
+    // const pro = sessionStorage.getItem("producto");
     // console.log(JSON.parse(pro || '{}') );
 
     // this.showProducts(JSON.parse(pro || '{}'));
@@ -27,7 +27,7 @@ export class CartComponent {
   incrementCant( cant : number, productId : number){
     console.log("incrementando");
   
-    let productList = JSON.parse(localStorage.getItem("producto") || '[]');
+    let productList = JSON.parse(sessionStorage.getItem("producto") || '[]');
 
     productList= productList.map((pro: any)=>{
       if(pro.id === productId){
@@ -36,7 +36,7 @@ export class CartComponent {
       return pro;
     });
 
-    localStorage.setItem("producto", JSON.stringify(productList)),
+    sessionStorage.setItem("producto", JSON.stringify(productList)),
     this.products = productList;
 
     console.log(productList);
@@ -44,7 +44,7 @@ export class CartComponent {
 
   decrementCant(cant:  number , productId : number){ 
     if(cant > 1){
-      let productList = JSON.parse(localStorage.getItem("producto") || '[]');
+      let productList = JSON.parse(sessionStorage.getItem("producto") || '[]');
 
       productList= productList.map((pro: any)=>{
         if(pro.id === productId){
@@ -53,7 +53,7 @@ export class CartComponent {
         return pro;
       });
   
-      localStorage.setItem("producto", JSON.stringify(productList)),
+      sessionStorage.setItem("producto", JSON.stringify(productList)),
       this.products = productList;
   
       console.log(productList);
@@ -63,7 +63,7 @@ export class CartComponent {
   }
 
   showProducts(){
-    const productos  = JSON.parse(localStorage.getItem("producto") || '[]' );
+    const productos  = JSON.parse(sessionStorage.getItem("producto") || '[]' );
     
     console.log(productos);
 

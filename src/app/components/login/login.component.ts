@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuService } from '../menu/menu.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class LoginComponent {
   nameUser : string ="";
   password: string="";
 
-  constructor(public menuservice : MenuService){
+  constructor(public menuservice : MenuService, private router : Router){
 
   }
 
@@ -27,14 +28,13 @@ export class LoginComponent {
     console.log(user);
 
     this.menuservice.authUsers(user).subscribe((res) => {
-      // console.log(res);
-      if(res){
-        console.log("autenticado correctamente");
-        this.routeLink="menu";
-
-      } else{
-        console.log("no autenticado");
-      }
+      
+      console.log(res);
+        this.router.navigate(["/menu"]);
+    },
+    (error)=>{
+      console.log(error);
+      this.router.navigate(["/cart"]);
     });
   }
 

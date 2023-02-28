@@ -20,10 +20,10 @@ interface User {
   providedIn: 'root'
 })
 export class MenuService {
-    // private api_url = "https://localhost:7063/api/Product";
+    private api_url = "https://localhost:7063/api/Product";
 
     //api fake
-    private api_url = "https://fakestoreapi.com/products";
+    // private api_url = "https://fakestoreapi.com/products";
 
     //url auth
     private url_auth = 'https://fakestoreapi.com/auth/login';
@@ -38,11 +38,13 @@ export class MenuService {
     return this.http.get(this.api_url);
   }
 
+
   authUsers(user:User) : Observable<any>{
     const headers = {'content-type': 'application/json'}
     const body = JSON.stringify(user);
     return this.http.post(this.url_auth,body,{'headers':headers});
   }
+
 
   addProducts(productselect : any) {
     this.arrayProducts.push(productselect);

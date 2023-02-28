@@ -38,8 +38,8 @@ ngOnInit(){
    
   });
 
-  if(window.localStorage.length > 0){
-    let productList = JSON.parse(localStorage.getItem("producto") || '[]');
+  if(window.sessionStorage.length > 0){
+    let productList = JSON.parse(sessionStorage.getItem("producto") || '[]');
     this.arrayProducts = productList;
     console.log(this.arrayProducts);
   }
@@ -76,63 +76,8 @@ ngOnInit(){
 
 
     }
-    localStorage.setItem("producto",JSON.stringify(this.arrayProducts));
+    sessionStorage.setItem("producto",JSON.stringify(this.arrayProducts));
     
-
-
-
-
-
-
-    // // si localstorage esta vacio
-    // if(window.localStorage.length === 0){
-    //   if(this.arrayProducts.length === 0){
-    //     this.arrayProducts.push(productselect);
-    //   } else{
-    //     if( this.arrayProducts.includes(productselect)=== true){
-    //       console.log("repetido");
-    //       this. arrayProducts =this.arrayProducts.map((pro:any)=>{
-    //         if(pro.id === productselect.id){
-    //           pro.quantity = pro.quantity + 1;
-    //         }
-    //         return pro;
-    //       });
-  
-    //     } else{
-    //       this.arrayProducts.push(productselect);
-    //     }
-        
-    //   }
-                                                   
-    //   localStorage.setItem("producto",JSON.stringify(this.arrayProducts));
-
-    // } else { // cuando 
-    //   console.log("aqui")
-    //   let value = 0;
-    //   this.arrayProducts.forEach((pro)=>{
-    //     if(pro.id  === productselect.id ){
-    //       this. arrayProducts =this.arrayProducts.map((pro:any)=>{
-    //             if(pro.id === productselect.id){
-    //               pro.quantity = pro.quantity + 1;
-    //               value = 1;
-    //             }
-    //             return pro;
-    //           });
-    //     } else{
-
-    //     }
-    //   });
-    //   if(value === 1){
-    //     this.arrayProducts.push(productselect);
-    //   }
-
-    //   localStorage.setItem("producto",JSON.stringify(this.arrayProducts));
-
-
-    // }
-    
-    
-  
   }
 
 }
