@@ -4,9 +4,9 @@
             <th class="colum-image"></th>
             <th class="colum-producto">Producto</th>
             <th class="colum-price">Precio</th>
-            <th></th>
+            <th class="colum-plus"></th>
             <th class="colum-quantity">Cantidad</th>
-            <th></th>
+            <th class="colum-minus"></th>
             <th>Importe</th>
         </tr>
         <tr *ngFor ="let productSelect  of products">
@@ -24,6 +24,7 @@
             </th>
             <th>${{productSelect.price*productSelect.quantity}}</th>
         </tr>
+
         <tr>
           <th></th>
           <th></th>
