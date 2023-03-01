@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuService } from '../menu/menu.service';
+import jwt_decode from 'jwt-decode';
+
+
 
 @Component({
   selector: 'app-login',
@@ -25,18 +28,43 @@ export class LoginComponent {
     user.username = this.nameUser;
     user.password = this.password
 
-    // console.log(user);
+    let token = ""
 
     this.menuservice.authUsers(user).subscribe({
       next: (res) => {
-        console.log("autenciación correcta");
-        this.router.navigate(["/menu"]);
+        console.log(res.result);
+        token= res.result;
+
+        //decodificar token
+        console.log(this.getDecodedAccessToken(token).rol);
+        //obtener el rol
+        const rol = this.getDecodedAccessToken(token).rol;
+
+        
+        if(rol == "administrador"){
+          console.log("tabla de productos");
+          // this.router.navigate(["/menu"]);
+
+        } else {
+          console.log("autenciación correcta");
+          this.router.navigate(["/menu"]);
+        }
+
       },
       error: (err) =>{
         console.log("cuenta incorrecta");
       }
 
     });
+  }
+
+  //decodificar token
+  getDecodedAccessToken(token: string): any {
+    try {
+      return jwt_decode(token);
+    } catch(Error) {
+      return null;
+    }
   }
 
 

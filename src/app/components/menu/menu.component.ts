@@ -23,6 +23,9 @@ export class MenuComponent{
 
   //almacena productos seleccionados
   public arrayProducts : any[] = [];
+
+  //almacena cantidad de productos seleccionados
+  public quantity : number = 0;
   
 
 constructor( public menuservice: MenuService){
@@ -50,6 +53,11 @@ ngOnInit(){
 
  // método añadir producto 
   addProduct(productselect : Product){
+
+    this.quantity = this.quantity +1;
+    console.log(this.quantity);
+
+    this.menuservice.quantityProducts(this.quantity);
     console.log(productselect);
    
     if (this.arrayProducts.length === 0) {
@@ -77,6 +85,7 @@ ngOnInit(){
 
     }
     sessionStorage.setItem("producto",JSON.stringify(this.arrayProducts));
+    // window.location.reload();
     
   }
 

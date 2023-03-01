@@ -23,6 +23,8 @@ export class MenuService {
     private api_url = "https://localhost:7063/api/Product";
     private url_auth = "https://localhost:7063/api/usuario/login";
 
+    public qty = 0;
+
 
     //api fake
     // private api_url = "https://fakestoreapi.com/products";
@@ -46,15 +48,20 @@ export class MenuService {
     return this.http.post(this.url_auth,body,{'headers':headers});
   }
 
- //agregar productos al carrito
-  addProducts(productselect : any) {
-    this.arrayProducts.push(productselect);
-
-  // trae productos diferentes
-    this.arrayProducts = this.arrayProducts.filter((pro,index)=>{
-      return  this.arrayProducts.indexOf(pro) === index;
-    });
-
+  //enviar cantidad de productos seleccionados
+  quantityProducts(qty : number){
+    this.qty = qty;
   }
+
+//  //agregar productos al carrito
+//   addProducts(productselect : any) {
+//     this.arrayProducts.push(productselect);
+
+//   // trae productos diferentes
+//     this.arrayProducts = this.arrayProducts.filter((pro,index)=>{
+//       return  this.arrayProducts.indexOf(pro) === index;
+//     });
+
+//   }
 
 }
