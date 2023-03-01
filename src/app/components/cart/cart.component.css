@@ -1,5 +1,4 @@
 .container-table{
-    background-color: floralwhite;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,29 +8,20 @@
 
 }
 table{
-    background-color: antiquewhite;
-    border: burlywood;
+    border: solid 2px #8D72E1;
+    border-radius: 5px;
     width: 1000px;
-    /* height: 800px; */
-    /* word-wrap: break-word; */
-    /* padding: 60px; */
+    padding: 10px;
+}
 
-}
-table tr {
-    /* background-color: blue; */
-    /* height: 100%; */
-    height:25% ;
-    padding: 30px;
-}
 table th{
-    /* width: 100px; */
     width: 16.7%;
 }
 
-/* .colum-image .colum-producto .colum-price .colum-quantity .colum-plus .colum-minus{
-    /* width: 250px;
-    height: 200px;
-} */
+table tr::nth-child(2){
+  height: 30px;
+}
+
 table th:nth-child(3){
   width:6%;
 }
@@ -47,18 +37,43 @@ table th:nth-child(6){
 table th:nth-child(7){
   width:6%;
 }
+table th:nth-child(8){
+  width:10%;
+}
+
+
 
 
 table th button{
-  /* background-color: black; */
+  background-color: white;
   width: 40px;
   height: 40px;
   cursor: pointer;
   border:none;
+  border-radius: 5px; 
+  font-size: 25px;
+  color: black;
 }
 
 .colum-image img{
-    width: 90%;
-    height: 100%;
+    width: 50%;
+    height: 40%;
     border-radius: 10px;
+}
+.button-plus img{
+  height: 100%;
+  width: 100%;
+}
+.button-minus img {
+  height: 100%;
+  width: 100%;
+}
+.button-delete-item{
+  background-color: white;
+  border: none;
+}
+
+.button-delete-item img{
+  height: 100%;
+  width: 100%;
 }

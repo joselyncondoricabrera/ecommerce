@@ -23,7 +23,7 @@ export class CartComponent {
     this.showProducts();
 
   }
-
+ 
   incrementCant( cant : number, productId : number){
     console.log("incrementando");
   
@@ -69,6 +69,16 @@ export class CartComponent {
 
     this.products = productos;
 
+  }
+
+  deleteItemProduct(productId : number){
+    console.log("elimando item");
+    console.log(productId);
+
+    const productsList = JSON.parse(sessionStorage.getItem("producto") || '[]')
+    let newproductsList = productsList.filter((prod : any) => prod.id !== productId);
+    sessionStorage.setItem("producto",JSON.stringify(newproductsList));
+    window.location.reload();
   }
 
 

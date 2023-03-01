@@ -25,17 +25,21 @@ export class LoginComponent {
     user.username = this.nameUser;
     user.password = this.password
 
-    console.log(user);
+    // console.log(user);
 
-    this.menuservice.authUsers(user).subscribe((res) => {
-      
-      console.log(res);
+    this.menuservice.authUsers(user).subscribe({
+      next: (res) => {
+        console.log("autenciación correcta");
         this.router.navigate(["/menu"]);
-    },
-    (error)=>{
-      console.log(error);
-      this.router.navigate(["/cart"]);
+      },
+      error: (err) =>{
+        console.log("cuenta incorrecta");
+      }
+
     });
   }
 
+
+
 }
+

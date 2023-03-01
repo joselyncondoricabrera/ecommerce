@@ -21,12 +21,12 @@ interface User {
 })
 export class MenuService {
     private api_url = "https://localhost:7063/api/Product";
+    private url_auth = "https://localhost:7063/api/usuario/login";
+
 
     //api fake
     // private api_url = "https://fakestoreapi.com/products";
-
-    //url auth
-    private url_auth = 'https://fakestoreapi.com/auth/login';
+    //private url_auth = 'https://fakestoreapi.com/auth/login';
 
     arrayProducts: any[] =[];
 
@@ -34,18 +34,19 @@ export class MenuService {
   constructor( public http: HttpClient) {
   }
 
+//mostrar productos
   getProducts() : Observable<any>{
     return this.http.get(this.api_url);
   }
 
-
+ //autenticar al usuario
   authUsers(user:User) : Observable<any>{
     const headers = {'content-type': 'application/json'}
     const body = JSON.stringify(user);
     return this.http.post(this.url_auth,body,{'headers':headers});
   }
 
-
+ //agregar productos al carrito
   addProducts(productselect : any) {
     this.arrayProducts.push(productselect);
 
