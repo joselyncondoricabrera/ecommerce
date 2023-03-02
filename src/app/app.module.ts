@@ -20,8 +20,7 @@ import { LoginComponent } from './components/login/login.component';
     NavbarComponent,
     CartComponent,
     MenuAdminComponent,
-    LoginComponent
-
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

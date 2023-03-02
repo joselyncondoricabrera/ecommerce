@@ -1,20 +1,19 @@
 <div class="container-menu-admin">
     <table>
-        <tr>
+        <tr class ="row-head">
             <th>Id</th>
-            <th>Imagen</th>
+            <th class="colum-image">Imagen</th>
             <th>Producto</th>
             <th>Precio Unit.</th>
-            <th>eliminar</th>
-            <th>modificar</th>
+            <th>Acciones</th>
         </tr>
-        <tr *ngFor="let product of products">
+        <tr class="row-body" *ngFor="let product of products">
             <th>{{product.id}}</th>
             <th class="colum-image"><img src="{{product.image}}"></th>
             <th>{{product.title}}</th>
             <th>${{product.price}}</th>
-            <th><button>eliminar</button></th>
-            <th><button>modificar</button></th>
+            <th><button class="button-delete" (click)="deleteProduct(product.id)">eliminar</button><button class="button-update">modificar</button></th>
+            <!-- <th><app-button-menu-admin (val)="deleteProduct($event,product.id)" ></app-button-menu-admin></th> -->
         </tr>
     </table>
 

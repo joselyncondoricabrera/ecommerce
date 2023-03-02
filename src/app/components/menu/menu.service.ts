@@ -46,22 +46,9 @@ export class MenuService {
     return this.http.post(this.url_auth,body,{'headers':headers});
   }
 
-
- // mostrar cantidad de productos
-  
+  //eliminar un producto
+  deletedProduct(id : number): Observable<any>{
+    return this.http.delete(`https://localhost:7063/api/Product/${id}`);
+  }
  
-
-
-
-//  //agregar productos al carrito
-//   addProducts(productselect : any) {
-//     this.arrayProducts.push(productselect);
-
-//   // trae productos diferentes
-//     this.arrayProducts = this.arrayProducts.filter((pro,index)=>{
-//       return  this.arrayProducts.indexOf(pro) === index;
-//     });
-
-//   }
-
 }
