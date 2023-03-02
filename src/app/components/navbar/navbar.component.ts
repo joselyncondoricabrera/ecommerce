@@ -7,10 +7,14 @@ import { MenuService } from '../menu/menu.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  qty : number = 0;
+ 
+  constructor( ){
 
-  qty_cart : number = this.menuservice.qty;
-  
-  constructor( public menuservice : MenuService){
+    // ejecutado menos de un segundo la función getQuantity()
+    setInterval(() => {
+      this.qty= this.getQuantity()
+    }, 10);
 
   }
 
@@ -22,6 +26,15 @@ export class NavbarComponent {
    });
    console.log(total_qty);
    
+  }
+
+  getQuantity (): number {
+    let listProduct = JSON.parse(sessionStorage.getItem("producto") || '[]');
+    let qty= 0;
+    listProduct.forEach((pro:any) => {
+      qty = qty + pro.quantity;
+    });
+    return qty;
   }
 
 }

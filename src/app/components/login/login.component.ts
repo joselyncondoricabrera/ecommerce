@@ -43,7 +43,7 @@ export class LoginComponent {
         
         if(rol == "administrador"){
           console.log("tabla de productos");
-          // this.router.navigate(["/menu"]);
+          this.router.navigate(["/MenuAdmin"]);
 
         } else {
           console.log("autenciación correcta");
@@ -53,6 +53,7 @@ export class LoginComponent {
       },
       error: (err) =>{
         console.log("cuenta incorrecta");
+        //mostrar un modal de cuenta incorrecta
       }
 
     });

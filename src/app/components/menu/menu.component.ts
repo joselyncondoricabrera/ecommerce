@@ -54,10 +54,11 @@ ngOnInit(){
  // método añadir producto 
   addProduct(productselect : Product){
 
+    //contabiliza cada click de agregar
     this.quantity = this.quantity +1;
     console.log(this.quantity);
 
-    this.menuservice.quantityProducts(this.quantity);
+    
     console.log(productselect);
    
     if (this.arrayProducts.length === 0) {

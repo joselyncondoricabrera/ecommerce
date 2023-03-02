@@ -9,7 +9,7 @@ import { MenuService } from '../menu/menu.service';
 export class CartComponent {
   products : Array<any> =[];
 
-  constructor(public menuService : MenuService){
+  constructor(){
     // console.log(this.products);
     // this.products = menuService.arrayProducts;
     // console.log(this.products);
@@ -18,11 +18,13 @@ export class CartComponent {
     // const pro = sessionStorage.getItem("producto");
     // console.log(JSON.parse(pro || '{}') );
 
-    // this.showProducts(JSON.parse(pro || '{}'));
+    // this.showProducts(JSON.parse(pro || '{}'))
+
 
     this.showProducts();
 
   }
+  
  
   incrementCant( cant : number, productId : number){
     console.log("incrementando");

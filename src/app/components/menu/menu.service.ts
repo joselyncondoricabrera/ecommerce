@@ -23,9 +23,7 @@ export class MenuService {
     private api_url = "https://localhost:7063/api/Product";
     private url_auth = "https://localhost:7063/api/usuario/login";
 
-    public qty = 0;
-
-
+  
     //api fake
     // private api_url = "https://fakestoreapi.com/products";
     //private url_auth = 'https://fakestoreapi.com/auth/login';
@@ -48,10 +46,12 @@ export class MenuService {
     return this.http.post(this.url_auth,body,{'headers':headers});
   }
 
-  //enviar cantidad de productos seleccionados
-  quantityProducts(qty : number){
-    this.qty = qty;
-  }
+
+ // mostrar cantidad de productos
+  
+ 
+
+
 
 //  //agregar productos al carrito
 //   addProducts(productselect : any) {

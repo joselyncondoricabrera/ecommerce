@@ -1,1 +1,21 @@
-<p>menu-admin works!</p>
+<div class="container-menu-admin">
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Imagen</th>
+            <th>Producto</th>
+            <th>Precio Unit.</th>
+            <th>eliminar</th>
+            <th>modificar</th>
+        </tr>
+        <tr *ngFor="let product of products">
+            <th>{{product.id}}</th>
+            <th class="colum-image"><img src="{{product.image}}"></th>
+            <th>{{product.title}}</th>
+            <th>${{product.price}}</th>
+            <th><button>eliminar</button></th>
+            <th><button>modificar</button></th>
+        </tr>
+    </table>
+
+</div>
