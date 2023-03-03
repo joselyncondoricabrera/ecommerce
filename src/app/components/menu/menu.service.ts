@@ -22,6 +22,7 @@ interface User {
 export class MenuService {
     private api_url = "https://localhost:7063/api/Product";
     private url_auth = "https://localhost:7063/api/usuario/login";
+    // private url_addProduct = "https://localhost:7063/api/Product";
 
   
     //api fake
@@ -51,4 +52,10 @@ export class MenuService {
     return this.http.delete(`https://localhost:7063/api/Product/${id}`);
   }
  
+  // agregar producto
+  addProduct(producto: object):Observable<any>{
+    const header = {'content-type': 'application/json'}
+    const body = JSON.stringify(producto);
+    return this.http.post(this.api_url,body,{'headers': header});
+  }
 }

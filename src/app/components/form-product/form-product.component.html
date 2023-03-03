@@ -1,0 +1,17 @@
+<div class="container-form-product">
+    <form class="form-product" (ngSubmit)="saveNewProduct()">
+        <div>
+            <label for="title">TITLE:</label>
+            <input name="title" type="text" [(ngModel)]="product.title">
+        </div>
+        <div>
+            <label for="price">PRICE:</label>
+            <input name="price" type="text" [(ngModel)]="product.price">
+        </div>
+        <div>
+            <label for="image">IMAGE:</label>
+        </div>
+        <button (click)="changeImage()" type="button"></button>
+        <button class ="" type="submit">Guardar</button>
+    </form>
+</div>

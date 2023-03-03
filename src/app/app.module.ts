@@ -12,6 +12,9 @@ import {HttpClientModule} from '@angular/common/http';
 import { MenuService } from '../app/components/menu/menu.service';
 import { MenuAdminComponent } from './components/menu-admin/menu-admin.component';
 import { LoginComponent } from './components/login/login.component';
+import { FormProductComponent } from './components/form-product/form-product.component';
+
+import {CloudinaryModule} from '@cloudinary/ng';
 
 @NgModule({
   declarations: [
@@ -21,12 +24,14 @@ import { LoginComponent } from './components/login/login.component';
     CartComponent,
     MenuAdminComponent,
     LoginComponent,
+    FormProductComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CloudinaryModule
   ],
   providers: [
     MenuService

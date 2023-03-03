@@ -1,6 +1,9 @@
 import { Component} from '@angular/core';
 import { MenuService } from '../menu/menu.service';
 
+import {CloudinaryImage} from '@cloudinary/url-gen';
+import {fill} from '@cloudinary/url-gen/actions/resize';
+
 interface Product {
   id: number,
   title: string,
@@ -26,6 +29,8 @@ export class MenuComponent{
 
   //almacena cantidad de productos seleccionados
   public quantity : number = 0;
+
+  myImage =  new CloudinaryImage('sample', {cloudName: 'dntbtu6w4'}).resize(fill().width(100).height(150));
   
 
 constructor( public menuservice: MenuService){

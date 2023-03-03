@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuService } from '../menu/menu.service';
 
 
@@ -15,7 +16,7 @@ export class MenuAdminComponent {
  
   
 
-  constructor( public menuservice:MenuService){
+  constructor( public menuservice:MenuService, public router : Router){
     this.menuservice.getProducts().subscribe((res)=>{
       console.log(res);
       this.products = res;
@@ -38,6 +39,10 @@ export class MenuAdminComponent {
     });
 
     }
+  }
+  addNewProduct(){
+    this.router.navigate(['/formProduct']);
+
   }
 
   updateProduct(id:number){
