@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MenuService } from '../menu/menu.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +8,7 @@ import { MenuService } from '../menu/menu.service';
 })
 export class NavbarComponent {
   qty : number = 0;
- 
+
   constructor( ){
 
     // ejecutado menos de un segundo la función getQuantity()
@@ -25,7 +25,7 @@ export class NavbarComponent {
     total_qty= total_qty + pro.quantity;
    });
    console.log(total_qty);
-   
+
   }
 
   getQuantity (): number {

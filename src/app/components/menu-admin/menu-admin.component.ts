@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuService } from '../menu/menu.service';
+import { RequestHttpService } from '../../requestHttp.service';
 
 
 
@@ -13,25 +13,25 @@ import { MenuService } from '../menu/menu.service';
 
 export class MenuAdminComponent {
   public products : any =[];
- 
-  
 
-  constructor( public menuservice:MenuService, public router : Router){
-    this.menuservice.getProducts().subscribe((res)=>{
+
+
+  constructor( public requesthttp:RequestHttpService, public router : Router){
+    this.requesthttp.getProducts().subscribe((res)=>{
       console.log(res);
       this.products = res;
     });
 
   }
-  
+
 
   deleteProduct(id:number){
     if(confirm("Desea eliminar este producto?")){
-       
-    this.menuservice.deletedProduct(id).subscribe((res)=> {
+
+    this.requesthttp.deletedProduct(id).subscribe((res)=> {
       console.log(res);
       //volviendo a mostrar la data
-      this.menuservice.getProducts().subscribe((res)=>{
+      this.requesthttp.getProducts().subscribe((res)=>{
         console.log(res);
         this.products = res;
       });

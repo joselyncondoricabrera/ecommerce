@@ -12,8 +12,13 @@
     display: grid;
     width: 22%;
     padding:20px;
-    
 
+
+}
+.form-product h1{
+  text-align: center;
+  color: #3E54AC;
+  margin-bottom: 20px;
 }
 .form-product label{
     display: inline-block;
@@ -22,7 +27,7 @@
     font-family: 'Catamaran', sans-serif;
 }
 .form-product input{
-    
+
   height: 40px;
   width: 76%;
   border: solid 1px #301E67;
@@ -35,9 +40,8 @@
 
 }
 
-.form-product button{
+/* .form-product button{
     width: 100%;
-    /* height: 100%; */
     border: none;
     height: 40px;
     font-family: 'Catamaran', sans-serif;
@@ -46,8 +50,39 @@
     border-radius: 10px;
     font-size: 18px;
     margin-bottom: 10px;
-}
+} */
+
 .form-product div{
     margin-bottom: 20px;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo-upload{
+  width: 12%;
+  /* height: 10%; */
+}
+.button-upload-image{
+  height: 40px;
+  width: 76%;
+  border-radius: 10px;
+  border: none;
+  background-color: #472183;
+  color: white;
+  cursor: pointer;
+
+}
+.button-add-product{
+  width: 100%;
+
+    border: none;
+    height: 40px;
+    font-family: 'Catamaran', sans-serif;
+    background-color: #301E67;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    cursor: pointer;
 }

@@ -9,7 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CartComponent } from './components/cart/cart.component';
 
 import {HttpClientModule} from '@angular/common/http';
-import { MenuService } from '../app/components/menu/menu.service';
+import {RequestHttpService} from './requestHttp.service';
 import { MenuAdminComponent } from './components/menu-admin/menu-admin.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormProductComponent } from './components/form-product/form-product.component';
@@ -34,7 +34,7 @@ import {CloudinaryModule} from '@cloudinary/ng';
     CloudinaryModule
   ],
   providers: [
-    MenuService
+    RequestHttpService
   ],
   bootstrap: [AppComponent]
 })

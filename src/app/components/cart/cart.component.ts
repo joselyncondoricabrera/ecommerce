@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MenuService } from '../menu/menu.service';
+
 
 @Component({
   selector: 'app-cart',
@@ -10,25 +10,13 @@ export class CartComponent {
   products : Array<any> =[];
 
   constructor(){
-    // console.log(this.products);
-    // this.products = menuService.arrayProducts;
-    // console.log(this.products);
-
-
-    // const pro = sessionStorage.getItem("producto");
-    // console.log(JSON.parse(pro || '{}') );
-
-    // this.showProducts(JSON.parse(pro || '{}'))
-
-
     this.showProducts();
-
   }
-  
- 
+
+
   incrementCant( cant : number, productId : number){
     console.log("incrementando");
-  
+
     let productList = JSON.parse(sessionStorage.getItem("producto") || '[]');
 
     productList= productList.map((pro: any)=>{
@@ -44,7 +32,7 @@ export class CartComponent {
     console.log(productList);
   }
 
-  decrementCant(cant:  number , productId : number){ 
+  decrementCant(cant:  number , productId : number){
     if(cant > 1){
       let productList = JSON.parse(sessionStorage.getItem("producto") || '[]');
 
@@ -54,19 +42,19 @@ export class CartComponent {
         }
         return pro;
       });
-  
+
       sessionStorage.setItem("producto", JSON.stringify(productList)),
       this.products = productList;
-  
+
       console.log(productList);
 
     }
-    
+
   }
 
   showProducts(){
     const productos  = JSON.parse(sessionStorage.getItem("producto") || '[]' );
-    
+
     console.log(productos);
 
     this.products = productos;

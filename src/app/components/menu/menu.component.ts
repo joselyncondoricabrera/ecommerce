@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { MenuService } from '../menu/menu.service';
+import { RequestHttpService } from '../../requestHttp.service';
 
 import {CloudinaryImage} from '@cloudinary/url-gen';
 import {fill} from '@cloudinary/url-gen/actions/resize';
@@ -31,19 +31,19 @@ export class MenuComponent{
   public quantity : number = 0;
 
   myImage =  new CloudinaryImage('sample', {cloudName: 'dntbtu6w4'}).resize(fill().width(100).height(150));
-  
 
-constructor( public menuservice: MenuService){
-   
+
+constructor( public requesthttp: RequestHttpService){
+
 }
 
 ngOnInit(){
-  this.menuservice.getProducts().subscribe((res)=>{
-   
+  this.requesthttp.getProducts().subscribe((res)=>{
+
     this.products = res.map((pro: any)=>{
       return {...pro, quantity : 1};
     });
-   
+
   });
 
   if(window.sessionStorage.length > 0){
@@ -53,19 +53,19 @@ ngOnInit(){
   }
 
 
- 
+
 }
 
- // método añadir producto 
+ // método añadir producto
   addProduct(productselect : Product){
 
     //contabiliza cada click de agregar
     this.quantity = this.quantity +1;
     console.log(this.quantity);
 
-    
+
     console.log(productselect);
-   
+
     if (this.arrayProducts.length === 0) {
       this.arrayProducts.push(productselect);
     } else {
@@ -92,7 +92,7 @@ ngOnInit(){
     }
     sessionStorage.setItem("producto",JSON.stringify(this.arrayProducts));
     // window.location.reload();
-    
+
   }
 
 }

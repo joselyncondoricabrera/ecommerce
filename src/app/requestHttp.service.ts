@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable, ObservedValuesFromArray} from 'rxjs';
+import {Observable} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 interface Product {
@@ -19,12 +19,12 @@ interface User {
 @Injectable({
   providedIn: 'root'
 })
-export class MenuService {
+export class RequestHttpService {
     private api_url = "https://localhost:7063/api/Product";
     private url_auth = "https://localhost:7063/api/usuario/login";
     // private url_addProduct = "https://localhost:7063/api/Product";
 
-  
+
     //api fake
     // private api_url = "https://fakestoreapi.com/products";
     //private url_auth = 'https://fakestoreapi.com/auth/login';
@@ -51,7 +51,7 @@ export class MenuService {
   deletedProduct(id : number): Observable<any>{
     return this.http.delete(`https://localhost:7063/api/Product/${id}`);
   }
- 
+
   // agregar producto
   addProduct(producto: object):Observable<any>{
     const header = {'content-type': 'application/json'}

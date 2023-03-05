@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuService } from '../menu/menu.service';
+import { RequestHttpService } from '../../requestHttp.service';
 import jwt_decode from 'jwt-decode';
 
 
@@ -16,7 +16,7 @@ export class LoginComponent {
   nameUser : string ="";
   password: string="";
 
-  constructor(public menuservice : MenuService, private router : Router){
+  constructor(public requesthttp : RequestHttpService, private router : Router){
 
   }
 
@@ -30,7 +30,7 @@ export class LoginComponent {
 
     let token = ""
 
-    this.menuservice.authUsers(user).subscribe({
+    this.requesthttp.authUsers(user).subscribe({
       next: (res) => {
         console.log(res.result);
         token= res.result;
@@ -40,7 +40,7 @@ export class LoginComponent {
         //obtener el rol
         const rol = this.getDecodedAccessToken(token).rol;
 
-        
+
         if(rol == "administrador"){
           console.log("tabla de productos");
           this.router.navigate(["/MenuAdmin"]);

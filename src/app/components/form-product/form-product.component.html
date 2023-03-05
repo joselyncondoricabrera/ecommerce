@@ -1,5 +1,7 @@
 <div class="container-form-product">
+
     <form class="form-product" (ngSubmit)="saveNewProduct()">
+        <h1>Nuevo Producto</h1>
         <div>
             <label for="title">TITLE:</label>
             <input name="title" type="text" [(ngModel)]="product.title">
@@ -8,10 +10,12 @@
             <label for="price">PRICE:</label>
             <input name="price" type="text" [(ngModel)]="product.price">
         </div>
+
         <div>
-            <label for="image">IMAGE:</label>
+          <img  src="../../../assets/subir.png" class="logo-upload">
+          <button (click)="changeImage()" type="button" class="button-upload-image">Subir Imagen</button>
         </div>
-        <button (click)="changeImage()" type="button"></button>
-        <button class ="" type="submit">Guardar</button>
+
+        <button class ="button-add-product" type="submit">Guardar</button>
     </form>
 </div>
