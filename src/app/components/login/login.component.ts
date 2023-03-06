@@ -26,9 +26,9 @@ export class LoginComponent {
       "password" :"",
     };
     user.username = this.nameUser;
-    user.password = this.password
+    user.password = this.password;
 
-    let token = ""
+    let token = "";
 
     this.requesthttp.authUsers(user).subscribe({
       next: (res) => {
@@ -52,6 +52,7 @@ export class LoginComponent {
 
       },
       error: (err) =>{
+        console.log(err);
         console.log("cuenta incorrecta");
         //mostrar un modal de cuenta incorrecta
       }

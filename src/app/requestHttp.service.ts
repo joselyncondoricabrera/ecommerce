@@ -21,8 +21,11 @@ interface User {
 })
 export class RequestHttpService {
     private api_url = "https://localhost:7063/api/Product";
-    private url_auth = "https://localhost:7063/api/usuario/login";
+    private url_auth = "https://localhost:7063/api/Usuario/login";
     // private url_addProduct = "https://localhost:7063/api/Product";
+
+    //obtener id
+    public idProduct : number = 0;
 
 
     //api fake
@@ -57,5 +60,15 @@ export class RequestHttpService {
     const header = {'content-type': 'application/json'}
     const body = JSON.stringify(producto);
     return this.http.post(this.api_url,body,{'headers': header});
+  }
+
+  // mandar id
+  getId (id:number){
+    this.idProduct = id;
+  }
+
+  //buscar producto por id
+  searchById(id: number){
+    return this.http.get(`${this.api_url}/${id}`);
   }
 }

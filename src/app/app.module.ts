@@ -15,6 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 import { FormProductComponent } from './components/form-product/form-product.component';
 
 import {CloudinaryModule} from '@cloudinary/ng';
+import { UpdateFormProductComponent } from './components/update-form-product/update-form-product.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {CloudinaryModule} from '@cloudinary/ng';
     MenuAdminComponent,
     LoginComponent,
     FormProductComponent,
+    UpdateFormProductComponent,
   ],
   imports: [
     BrowserModule,

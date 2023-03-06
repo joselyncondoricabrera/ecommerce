@@ -13,7 +13,7 @@
             <th class="colum-image"><img src="{{product.image}}"></th>
             <th>{{product.title}}</th>
             <th>${{product.price}}</th>
-            <th><button class="button-delete" (click)="deleteProduct(product.id)">eliminar</button><button class="button-update">modificar</button></th>
+            <th><button class="button-delete" (click)="deleteProduct(product.id)">eliminar</button><button class="button-update" (click)="updateProduct(product.id)">modificar</button></th>
             <!-- <th><app-button-menu-admin (val)="deleteProduct($event,product.id)" ></app-button-menu-admin></th> -->
         </tr>
     </table>

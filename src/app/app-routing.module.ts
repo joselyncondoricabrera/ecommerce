@@ -6,6 +6,7 @@ import { MenuAdminComponent } from './components/menu-admin/menu-admin.component
 import { MenuComponent } from './components/menu/menu.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormProductComponent } from './components/form-product/form-product.component';
+import { UpdateFormProductComponent } from './components/update-form-product/update-form-product.component';
 
 const routes: Routes = [
   {path:'', component:MenuComponent},
@@ -13,7 +14,9 @@ const routes: Routes = [
   {path:'cart' , component: CartComponent},
   {path:'MenuAdmin', component: MenuAdminComponent},
   {path:'login', component: LoginComponent},
-  {path:'formProduct', component: FormProductComponent}
+  {path:'formProduct', component: FormProductComponent},
+  {path:'updateFormProduct', component: UpdateFormProductComponent}
+
 ];
 
 @NgModule({

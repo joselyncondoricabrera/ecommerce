@@ -1,5 +1,5 @@
 .container-form-product{
-    /* background-color:azure; */
+    background-color: #9EA1D4;
     width: 100wh;
     height: 100vh;
     display: flex;
@@ -12,8 +12,7 @@
     display: grid;
     width: 22%;
     padding:20px;
-
-
+    background-color: white;
 }
 .form-product h1{
   text-align: center;

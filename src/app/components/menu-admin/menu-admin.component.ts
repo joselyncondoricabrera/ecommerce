@@ -18,7 +18,7 @@ export class MenuAdminComponent {
 
   constructor( public requesthttp:RequestHttpService, public router : Router){
     this.requesthttp.getProducts().subscribe((res)=>{
-      console.log(res);
+      // console.log(res);
       this.products = res;
     });
 
@@ -42,10 +42,14 @@ export class MenuAdminComponent {
   }
   addNewProduct(){
     this.router.navigate(['/formProduct']);
-
   }
 
   updateProduct(id:number){
+
+    //recibe el id del producto seleccionado
+    this.requesthttp.getId(id);
+
+    this.router.navigate(['./updateFormProduct']);
 
   }
 
