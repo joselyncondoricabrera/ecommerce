@@ -10,8 +10,8 @@
   border: solid 2px rebeccapurple;
   border-radius: 8px;
   display: grid;
-  width: 22%;
-  padding:20px;
+  width: 16%;
+  padding:30px;
   background-color: white;
 
 
@@ -77,10 +77,8 @@ width: 100%;
 }
 
 .image-product{
-  /* background-color: aqua; */
-  /* width: 30px; */
-  height:120px;
-  padding: 0 70px;
+  height:140px;
+  padding: 0 100px;
   box-sizing: border-box;
 
 }

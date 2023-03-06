@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Product } from './product';
 
-interface Product {
-  id: number,
-  title: string,
-  description: string,
-  price: number,
-  image: string,
-  quantity: number,
-}
+// interface Product {
+//   id: number,
+//   title: string,
+//   description: string,
+//   price: number,
+//   image: string,
+//   quantity: number,
+// }
 
 interface User {
   username: string,
@@ -57,9 +58,16 @@ export class RequestHttpService {
 
   // agregar producto
   addProduct(producto: object):Observable<any>{
-    const header = {'content-type': 'application/json'}
+    const header = {'content-type': 'application/json'};
     const body = JSON.stringify(producto);
     return this.http.post(this.api_url,body,{'headers': header});
+  }
+
+  //modificar producto
+  updateProduct( product: Product):Observable<any>{
+    const header = {'content-type': 'application/json'};
+    const body = JSON.stringify(product);
+    return this.http.put(`${this.api_url}/${product.id}`,body,{'headers':header});
   }
 
   // mandar id

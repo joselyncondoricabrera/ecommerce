@@ -38,6 +38,7 @@ constructor( public requesthttp: RequestHttpService){
 }
 
 ngOnInit(){
+  console.log("hola");
   this.requesthttp.getProducts().subscribe((res)=>{
 
     this.products = res.map((pro: any)=>{

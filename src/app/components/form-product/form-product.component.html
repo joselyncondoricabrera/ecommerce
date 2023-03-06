@@ -4,15 +4,18 @@
         <h1>Nuevo Producto</h1>
         <div>
             <label for="title">TITLE:</label>
-            <input name="title" type="text" [(ngModel)]="product.title">
+            <input name="title" type="text"  required [(ngModel)]="product.title">
         </div>
         <div>
             <label for="price">PRICE:</label>
             <input name="price" type="text" [(ngModel)]="product.price">
         </div>
+        <div class ="container-img-product">
+            <img src={{url_img}}>
+        </div>
 
         <div>
-          <img  src="../../../assets/subir.png" class="logo-upload">
+          <img  src="../../../assets/upload.png" class="logo-upload">
           <button (click)="changeImage()" type="button" class="button-upload-image">Subir Imagen</button>
         </div>
 
