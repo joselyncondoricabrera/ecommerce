@@ -41,6 +41,13 @@ table th:nth-child(8){
   width:10%;
 }
 
+.row-head {
+  background-color: #ECF2FF;
+  /* border: solid 10px #393053;  */
+}
+.row-head th{
+  height: 40px;
+}
 
 
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RequestHttpService } from 'src/app/requestHttp.service';
 
 
 @Component({
@@ -8,9 +9,11 @@ import { Component } from '@angular/core';
 })
 export class CartComponent {
   products : Array<any> =[];
+  mountTotal : number = 0;
 
-  constructor(){
+  constructor( public requesthttp : RequestHttpService){
     this.showProducts();
+    this.calculateTotal();
   }
 
 
@@ -28,6 +31,9 @@ export class CartComponent {
 
     sessionStorage.setItem("producto", JSON.stringify(productList)),
     this.products = productList;
+
+    //actualiza el monto total
+    this.calculateTotal();
 
     console.log(productList);
   }
@@ -47,6 +53,8 @@ export class CartComponent {
       this.products = productList;
 
       console.log(productList);
+      //actualiza el monto total
+       this.calculateTotal();
 
     }
 
@@ -54,8 +62,6 @@ export class CartComponent {
 
   showProducts(){
     const productos  = JSON.parse(sessionStorage.getItem("producto") || '[]' );
-
-    console.log(productos);
 
     this.products = productos;
 
@@ -68,7 +74,26 @@ export class CartComponent {
     const productsList = JSON.parse(sessionStorage.getItem("producto") || '[]')
     let newproductsList = productsList.filter((prod : any) => prod.id !== productId);
     sessionStorage.setItem("producto",JSON.stringify(newproductsList));
-    window.location.reload();
+
+    // volver a cargar la data de productos
+    this.showProducts();
+    //actualiza el monto total
+    this.calculateTotal();
+
+  }
+
+  //calcular total
+  calculateTotal(){
+    let productsList = JSON.parse(sessionStorage.getItem("producto") || '[]');
+    let total = 0;
+    console.log(productsList);
+    productsList.forEach( (pro: any) => {
+      total = total + (pro.quantity * pro.price);
+    });
+
+    this.mountTotal = total;
+    console.log(this.mountTotal);
+
   }
 
 

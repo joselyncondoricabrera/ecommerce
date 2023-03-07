@@ -15,6 +15,7 @@ export class LoginComponent {
   routeLink : string = "";
   nameUser : string ="";
   password: string="";
+  // userName :string ="";
 
   constructor(public requesthttp : RequestHttpService, private router : Router){
 
@@ -32,6 +33,7 @@ export class LoginComponent {
 
     this.requesthttp.authUsers(user).subscribe({
       next: (res) => {
+       
         console.log(res.result);
         token= res.result;
 

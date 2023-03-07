@@ -5,9 +5,9 @@
     <nav>
         <ul>
             <li>Joselyn Condori Cabrera</li>
-            <li routerLink="/menu" class ="navbar-opcion">Menu</li>
-            <li routerLink="/cart" class ="navbar-opcion navbar-cart">Orden
-                <div>{{qty}}</div>
+            <li routerLink="/menu"  [ngClass]="style_li_menu" (click)="activeMenu()">Menu</li>
+            <li routerLink="/cart" [ngClass]="style_li_cart" (click)="activeCart()">Orden
+                <div [ngClass]="style_icono_cart">{{qty}}</div>
             </li>
             <li routerLink="/login"class ="navbar-opcion">Login</li>
         </ul>
